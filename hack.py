@@ -65,13 +65,13 @@ def submissiontab():
     title_label=Label(root, image=title,bg='black')
     title_label.grid(row=0,column=0, columnspan=4,padx=5,pady=5)
     
-    user_title=Label(root,text='Your email here:',fg='white',bg='black',font='Helvetica')
-    user_title.grid(row=1,column=0)
+    user_title=Label(root,text='Your email here:',fg='black',bg='#D8EDF3',font='Helvetica', justify=LEFT)
+    user_title.grid(row=1,column=0, pady=(500,0))
     
     user_submit=Entry(root)
-    user_submit.grid(row=1,column=1)
+    user_submit.grid(row=1,column=1,pady=(500,0))
     
-    user_ob=Label(root,text='Your observations here:',fg='white',bg='black',font='Helvetica')
+    user_ob=Label(root,text='Your observations here:',fg='black',bg='#D8EDF3',font='Helvetica')
     user_ob.grid(row=2,column=0,padx=20)
     
     ob_submit=Entry(root)
@@ -137,19 +137,19 @@ def searchtab():
     title_label=Label(root, image=title,bg='black')
     title_label.grid(row=0,column=0, columnspan=4,padx=5,pady=5)
 
-    pollution_label= Label(root,text='Choose pollutants:',fg='white',bg='black',font='Helvetica').grid(row=2,column=0,padx=35,pady=10)
+    pollution_label= Label(root,text='Choose pollutants:',fg='white',bg='black',font='Helvetica').grid(row=2,column=0,padx=35,pady=5)
     options=['     SO2     ' ,'     CO      ', '     NOx      ']
     click=StringVar()
     click.set('     SO2     ')
     drop = OptionMenu(root, click, *options)
     drop.grid(row=2, column=1,padx=0,pady=0)
     
-    date_label= Label(root,text='Choose date:',fg='white',bg='black',font='Helvetica',anchor=W).grid(row=3,column=0,padx=25,pady=5)
+    date_label= Label(root,text='Choose date:',fg='white',bg='black',font='Helvetica',anchor=W).grid(row=3,column=0,padx=25,pady=2)
     date_entry = Entry(root)
     date_entry.insert(0,'yyyy,mm,dd')
     date_entry.grid(row=3,column=1)
     
-    location_label= Label(root,text='Choose location:',fg='white',bg='black',font='Helvetica',anchor=W).grid(row=4,column=0,padx=25,pady=5)
+    location_label= Label(root,text='Choose location:',fg='white',bg='black',font='Helvetica',anchor=W).grid(row=4,column=0,padx=25,pady=2)
     location_entry = Entry(root)
     location_entry.insert(0,'your location')
     location_entry.grid(row=4,column=1)
@@ -157,17 +157,30 @@ def searchtab():
     def opendata():
         global chart
         global chart_lab
+        global chart1
+        global chart1_lab
+        global signal
+        global signal_lab
         
         if click.get()=='     SO2     ':
             chart = ImageTk.PhotoImage(Image.open("SO2.png"))
-            chart_lab = Label(root, image = chart) 
+            chart1 = ImageTk.PhotoImage(Image.open("SO2.png"))
+            signal = ImageTk.PhotoImage(Image.open("bad.png"))
         elif click.get()=='     CO      ':
             chart = ImageTk.PhotoImage(Image.open("CO.png"))
-            chart_lab = Label(root, image = chart)
+            chart1 = ImageTk.PhotoImage(Image.open("CO.png"))
+            signal = ImageTk.PhotoImage(Image.open("good.png"))
         elif click.get()=='     NOx      ':
             chart = ImageTk.PhotoImage(Image.open("NOx.png"))
-            chart_lab = Label(root, image = chart)
-        chart_lab.grid(row=6,column=0,columnspan=2, padx=20, pady=100)
+            chart1 = ImageTk.PhotoImage(Image.open("NOx.png"))
+            signal = ImageTk.PhotoImage(Image.open("bad.png"))
+
+        chart_lab = Label(root, image = chart)
+        chart1_lab = Label(root, image = chart1)
+        signal_lab = Label(root, image = signal, bg='black')
+        chart_lab.grid(row=6,column=0,columnspan=2, padx=20, pady=20)
+        chart1_lab.grid(row=7,column=0,columnspan=2, padx=20, pady=0)
+        signal_lab.grid(row=0,column=1,padx=5,pady=5)
     
     sub_butt= Button(root,text='Search', command=opendata)
     sub_butt.grid(row=5,column=0,columnspan=2,padx=10)
@@ -193,7 +206,7 @@ def main():
     
     title=ImageTk.PhotoImage(Image.open('logo.png'))
     title_label=Label(root, image=title,bg='black')
-    title_label.grid(row=0,column=0, columnspan=4,padx=5,pady=5)   
+    title_label.grid(row=0,column=0,padx=5,pady=5, columnspan=4)   
     
     search_tab= Button(root, text='Search', command= searchtab)
     search_tab.grid(row=1,column=0)
