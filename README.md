@@ -6,3 +6,9 @@ Main features:
 Data comes from 2 sources: smear(ground observation) and sentinelhub(satellite) to increase validity.
 -User submission feature to increase data, and validate our measument on arctic haze.
 -Warning notification if users are in dangerous areas with a high concentration of pollutants and low visibility.
+
+HOW TO RUN:
+(You need python install on your device for this to work)
+1.Download all the files
+2.Use command promt or powershell in the download directory
+3.type hack.py
