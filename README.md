@@ -2,10 +2,11 @@
 NoHaze App
 This is a skeleton for the No Haze app. For lack of time, the app is using placeholder data, when finished, it will use data for SMEAR API and SENTINELHUB API.
 Main features:
--Provide user-friendly data of certain pollutants, such as SO2, cO2, NOx, which may cause the arctic haze phenomenol.
-Data comes from 2 sources: smear(ground observation) and sentinelhub(satellite) to increase validity.
--User submission feature to increase data, and validate our measument on arctic haze.
--Warning notification if users are in dangerous areas with a high concentration of pollutants and low visibility.
+-Nohaze is an app that lets users select the location and pollutant types they want to track
+-Pollution data is pulled from the SMEAR and Sentinel websites and displayed over time periods of the last day, the last week, and the last month
+-It also displays, and notify user whether the current pollution level is hazardous or not based on the levels of sulfur dioxide, carbon monoxide, and nitrogen oxides
+-Users can also report their own observations of haze presence- this will help them to feel involved in the science and invested in improving the air quality
+ notification if users are in dangerous areas with a high concentration of pollutants and low visibility.
 
 HOW TO RUN:
 (You need python install on your device for this to work)
