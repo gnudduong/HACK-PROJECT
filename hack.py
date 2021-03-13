@@ -164,19 +164,19 @@ def searchtab():
         
         if click.get()=='     SO2     ':
             chart = ImageTk.PhotoImage(Image.open("SO2.png"))
-            chart1 = ImageTk.PhotoImage(Image.open("SO2.png"))
+            chart1 = ImageTk.PhotoImage(Image.open("niceso2.png"))
             signal = ImageTk.PhotoImage(Image.open("bad.png"))
         elif click.get()=='     CO      ':
             chart = ImageTk.PhotoImage(Image.open("CO.png"))
-            chart1 = ImageTk.PhotoImage(Image.open("CO.png"))
+            chart1 = ImageTk.PhotoImage(Image.open("niceco.png"))
             signal = ImageTk.PhotoImage(Image.open("good.png"))
         elif click.get()=='     NOx      ':
             chart = ImageTk.PhotoImage(Image.open("NOx.png"))
-            chart1 = ImageTk.PhotoImage(Image.open("NOx.png"))
+            chart1 = ImageTk.PhotoImage(Image.open("nicenox.png"))
             signal = ImageTk.PhotoImage(Image.open("bad.png"))
 
         chart_lab = Label(root, image = chart)
-        chart1_lab = Label(root, image = chart1)
+        chart1_lab = Label(root, image = chart1, bg='#D8EDF3')
         signal_lab = Label(root, image = signal, bg='black')
         chart_lab.grid(row=6,column=0,columnspan=2, padx=20, pady=20)
         chart1_lab.grid(row=7,column=0,columnspan=2, padx=20, pady=0)
@@ -198,6 +198,10 @@ def main():
     global title_label
     global info_img
     global info_label
+    global quality
+    global quality_label
+    
+    
     bg = ImageTk.PhotoImage(Image.open("back2.png") )
       
     # Show image using label 
@@ -208,17 +212,23 @@ def main():
     title_label=Label(root, image=title,bg='black')
     title_label.grid(row=0,column=0,padx=5,pady=5, columnspan=4)   
     
-    search_tab= Button(root, text='Search', command= searchtab)
+    search_tab= Button(root, text='Search', command= searchtab,bg='#D8EDF3')
     search_tab.grid(row=1,column=0)
     
-    info_tab= Button(root, text='Info', command = infotab)
+    info_tab= Button(root, text='Info', command = infotab,bg='#D8EDF3')
     info_tab.grid(row=1,column=1)
     
-    submission_tab= Button(root, text='Submission', command = submissiontab)
+    submission_tab= Button(root, text='Submission', command = submissiontab,bg='#D8EDF3')
     submission_tab.grid(row=1,column=2)
     
-    noti_tab= Button(root, text='Notification', command = notitab)
+    noti_tab= Button(root, text='Notification', command = notitab,bg='#D8EDF3')
     noti_tab.grid(row=1,column=3)
-
+    
+    quality=ImageTk.PhotoImage(Image.open('quality.png'))
+    quality_label=Label(root, image=quality,bg='#D8EDF3')
+    quality_label.grid(row=2,column=0,padx=20,pady=370, columnspan=4)
+    
+    
+    
 main()
 root.mainloop()
